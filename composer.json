@@ -6,7 +6,7 @@
         "quasi"
     ],
     "homepage": "https://github.com/protoqol/quasi",
-    "license": "GNU GPL-3.0-only",
+    "license": "GPL-3.0-only",
     "type": "library",
     "authors": [
         {
