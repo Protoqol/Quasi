@@ -4,7 +4,9 @@
 
 [![Latest Version on Packagist](https://img.shields.io/packagist/v/protoqol/quasi.svg?style=flat-square)](https://packagist.org/packages/protoqol/quasi)
 
-This package generates API resources with keys preset to their respective table's columns.
+Ever thought it was a bit tedious to define an API resource for a large table? This package makes life a bit
+simpler by presetting all columns in a Resource, so you can simply remove the ones you don't need, instead of adding the
+ones you need.
 
 ## Installation
 
@@ -12,6 +14,11 @@ You can install the package via composer:
 
 ```bash
 composer require protoqol/quasi
+```
+
+Optional - Publish configuration file with:
+```php 
+php artisan vendor:publish --tag=quasi-config
 ```
 
 ## Usage
@@ -24,14 +31,23 @@ php artisan make:qresource UserResource
 php artisan make:qresource UserResource users
 ```
 
+### Config
+
+```php 
+// The keys defined in this config will always be excluded from resources - if they exist as a key in the table.
+'exclude' => [
+    // 'id',
+],
+```
+
 ### Changelog
 
 Please see [CHANGELOG](CHANGELOG.md) for more information what has changed recently.
 
 ## Credits
 
--   [Quinten Justus](https://github.com/protoqol)
--   [All Contributors](../../contributors)
+- [Quinten Justus](https://github.com/protoqol)
+- [All Contributors](../../contributors)
 
 ## License
 
