@@ -1,10 +1,10 @@
-# Very short description of the package
+![Quasi](assets/quasi-promo.jpg)
+
+# Quasi
 
 [![Latest Version on Packagist](https://img.shields.io/packagist/v/protoqol/quasi.svg?style=flat-square)](https://packagist.org/packages/protoqol/quasi)
-[![Total Downloads](https://img.shields.io/packagist/dt/protoqol/quasi.svg?style=flat-square)](https://packagist.org/packages/protoqol/quasi)
-![GitHub Actions](https://github.com/protoqol/quasi/actions/workflows/main.yml/badge.svg)
 
-This is where your description should go. Try and limit it to a paragraph or two, and maybe throw in a mention of what PSRs you support to avoid any confusion with users and contributors.
+This package generates API resources with keys preset to their respective table's columns.
 
 ## Installation
 
@@ -17,26 +17,16 @@ composer require protoqol/quasi
 ## Usage
 
 ```php
-// Usage description here
-```
+//  Table name is "guessed" based of the resource name and will result in 'users' in this case.
+php artisan make:qresource UserResource 
 
-### Testing
-
-```bash
-composer test
+// Table name is given as the second argument.
+php artisan make:qresource UserResource users
 ```
 
 ### Changelog
 
 Please see [CHANGELOG](CHANGELOG.md) for more information what has changed recently.
-
-## Contributing
-
-Please see [CONTRIBUTING](CONTRIBUTING.md) for details.
-
-### Security
-
-If you discover any security related issues, please email quinten@protoqol.nl instead of using the issue tracker.
 
 ## Credits
 
@@ -45,8 +35,4 @@ If you discover any security related issues, please email quinten@protoqol.nl in
 
 ## License
 
-The MIT License (MIT). Please see [License File](LICENSE.md) for more information.
-
-## Laravel Package Boilerplate
-
-This package was generated using the [Laravel Package Boilerplate](https://laravelpackageboilerplate.com).
+The GNU GPL (GPL). Please see [License File](LICENSE.md) for more information.
