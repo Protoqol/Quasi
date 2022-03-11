@@ -3,7 +3,8 @@
 namespace Protoqol\Quasi;
 
 use Illuminate\Support\ServiceProvider;
-use Protoqol\Quasi\Commands\CreateQuasiResourceCommand;
+use Protoqol\Quasi\Console\CreateQuasiResourceCommand;
+use Protoqol\Quasi\Console\QuasiResource;
 
 class QuasiServiceProvider extends ServiceProvider
 {
@@ -12,29 +13,14 @@ class QuasiServiceProvider extends ServiceProvider
      */
     public function boot(): void
     {
+        if ($this->app->runningInConsole()) {
+            $this->commands([
+                QuasiResource::class,
+            ]);
+        }
+
         $this->publishes([
             __DIR__ . '/../config/quasi.php' => config_path('quasi.php'),
-        ], 'config');
-
-
-        if ($this->app->runningInConsole()) {
-            $this->commands([
-                CreateQuasiResourceCommand::class,
-            ]);
-        }
-    }
-
-    /**
-     * Register the application services.
-     */
-    public function register()
-    {
-        $this->mergeConfigFrom(__DIR__ . '/../config/quasi.php', 'quasi');
-
-        if ($this->app->runningInConsole()) {
-            $this->commands([
-                CreateQuasiResourceCommand::class,
-            ]);
-        }
+        ], 'quasi-config');
     }
 }
