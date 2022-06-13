@@ -8,6 +8,13 @@ Ever thought it was a bit tedious to define an API resource for a large table? T
 simpler by presetting all columns in a Resource, so you can simply remove the ones you don't need, instead of adding the
 ones you need.
 
+### Want to help keep open-source sustainable?
+
+You can help by contributing to the code or donating using the button below!
+Both are highly appreciated and contribute directly to keeping open-source free and sustainable!
+
+[![Donate](https://img.shields.io/badge/Donate-PayPal-green.svg)](https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=TJS5BKNE3JGW8)
+
 ## Installation
 
 You can install the package via composer:
