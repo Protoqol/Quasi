@@ -51,8 +51,8 @@ class QuasiResource extends GeneratorCommand
     /**
      * Replace the class name for the given stub.
      *
-     * @param string $stub
-     * @param string $name
+     * @param  string  $stub
+     * @param  string  $name
      *
      * @return string
      */
@@ -68,7 +68,7 @@ class QuasiResource extends GeneratorCommand
     /**
      * Replace keys.
      *
-     * @param string $stub
+     * @param  string  $stub
      *
      * @return string
      */
@@ -81,8 +81,10 @@ class QuasiResource extends GeneratorCommand
         $string = '';
 
         foreach ($columns as $column) {
-            if (in_array($column, config('quasi.exclude'), true)) {
-                continue;
+            if (config('quasi.exclude', false)) {
+                if (in_array($column, config('quasi.exclude'), true)) {
+                    continue;
+                }
             }
 
             $string .= "'$column' => \$this->$column,                
