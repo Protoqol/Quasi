@@ -25,7 +25,7 @@ You can install the package via Composer:
 composer require protoqol/quasi
 ```
 
-(Optional) You can publish the configuration file or the stubs with:
+You can publish the configuration file or the stubs with:
 
 ```bash
 # Publish configuration
