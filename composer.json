@@ -1,46 +1,51 @@
 {
-    "version": "1.0.2",
-    "name": "protoqol/quasi",
-    "description": "Quasi",
-    "keywords": [
-        "protoqol",
-        "quasi"
-    ],
-    "homepage": "https://github.com/protoqol/quasi",
-    "license": "GPL-3.0-only",
-    "type": "library",
-    "authors": [
-        {
-            "name": "Quinten Justus",
-            "email": "quinten@protoqol.nl",
-            "role": "Developer"
-        }
-    ],
-    "require": {
-        "php": "^7.4|^8.0",
-        "illuminate/support": "^7.0|^8.0|^9.0|^10.0"
-    },
-    "require-dev": {
-        "orchestra/testbench": "^6.0",
-        "phpunit/phpunit": "^9.0"
-    },
-    "autoload": {
-        "psr-4": {
-            "Protoqol\\Quasi\\": "src"
-        }
-    },
-    "scripts": {
-        "test": "vendor/bin/phpunit",
-        "test-coverage": "vendor/bin/phpunit --coverage-html coverage"
-    },
-    "config": {
-        "sort-packages": true
-    },
-    "extra": {
-        "laravel": {
-            "providers": [
-                "Protoqol\\Quasi\\QuasiServiceProvider"
-            ]
-        }
+  "$schema"    : "https://getcomposer.org/schema.json",
+  "version"    : "2.0.0",
+  "name"       : "protoqol/quasi",
+  "description": "Generate smarter Laravel resources, directly, based on your database schema.",
+  "keywords"   : [
+    "protoqol",
+    "quasi",
+    "laravel",
+    "resource-generator"
+  ],
+  "homepage"   : "https://github.com/protoqol/quasi",
+  "license"    : "MIT",
+  "type"       : "library",
+  "authors"    : [
+    {
+      "name"    : "Protoqol",
+      "email"   : "open-source@protoqol.nl",
+      "homepage": "https://protoqol.nl",
+      "role"    : "Developer"
     }
+  ],
+  "require"    : {
+    "php"               : "^8.1|^8.2|^8.3|^8.4|^8.5",
+    "illuminate/support": "^11.0|^12.0|^13.0"
+  },
+  "require-dev": {
+    "orchestra/testbench": "^8.36|^9.15|^10.8",
+    "phpunit/phpunit"    : "^10.0|^11.0"
+  },
+  "autoload"   : {
+    "psr-4": {
+      "Protoqol\\Quasi\\"       : "src",
+      "Protoqol\\Quasi\\Tests\\": "tests"
+    }
+  },
+  "scripts"    : {
+    "test"         : "vendor/bin/phpunit",
+    "test-coverage": "vendor/bin/phpunit --coverage-html coverage"
+  },
+  "config"     : {
+    "sort-packages": true
+  },
+  "extra"      : {
+    "laravel": {
+      "providers": [
+        "Protoqol\\Quasi\\QuasiServiceProvider"
+      ]
+    }
+  }
 }

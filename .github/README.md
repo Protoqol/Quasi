@@ -1,61 +1,104 @@
-![Quasi](assets/quasi-promo.jpg)
+![Quasi](https://cms.protoqol.nl/assets/1f26790d-79c2-4aeb-ab2e-4534820c3cb4)
 
-# Quasi
+![Packagist](https://img.shields.io/github/actions/workflow/status/Protoqol/quasi/testing)
+![Packagist](https://img.shields.io/packagist/v/protoqol/quasi.svg)
+![PHP Version](https://img.shields.io/packagist/php-v/protoqol/quasi.svg)
 
-[![Latest Version on Packagist](https://img.shields.io/packagist/v/protoqol/quasi.svg?style=flat-square)](https://packagist.org/packages/protoqol/quasi)
+## Features
 
-Ever thought it was a bit tedious to define an API resource for a large table? This package makes life a bit
-simpler by presetting all columns in a Resource, so you can simply remove the ones you don't need, instead of adding the
-ones you need.
+- **Smarter Resource Generation**: Automatically populate all columns in a Resource from your database table.
+- **Table Name Guessing**: Guesses the table name based on the resource name, or you can specify it manually.
+- **Model Integration**: Use `--model` to resolve the table name directly from an Eloquent model.
+- **Advanced Filtering**: Use `--only` or `--except` to filter columns on the fly.
+- **Relationship Discovery**: Automatically detects `_id` columns and adds commented-out `whenLoaded` placeholders.
+- **Bulk Generation**: Generate resources for all tables in your database with a single command.
+- **Resource Collections**: Generate a `ResourceCollection` alongside or instead of a standard resource.
+- **Customizable Stubs**: Publish and customize the resource stubs to match your project's style.
+- **Fine-grained Control**: Exclude specific fields globally via the configuration file or rely on automatic sensitive
+  data hiding.
 
-### Want to help keep open-source sustainable?
-
-You can help by contributing to the code or donating using the button below!
-Both are highly appreciated and contribute directly to keeping open-source free and sustainable!
-
-[![Donate](https://img.shields.io/badge/Donate-PayPal-green.svg)](https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=TJS5BKNE3JGW8)
+---
 
 ## Installation
 
-You can install the package via composer:
+You can install the package via Composer:
 
 ```bash
 composer require protoqol/quasi
 ```
 
-Optional - Publish configuration file with:
-```php 
+(Optional) You can publish the configuration file or the stubs with:
+
+```bash
+# Publish configuration
 php artisan vendor:publish --tag=quasi-config
+
+# Publish stubs for customization
+php artisan vendor:publish --tag=quasi-stubs
 ```
+
+---
 
 ## Usage
 
-```php
-//  Table name is "guessed" based of the resource name and will result in 'users' in this case.
+### Basic Usage
+
+You can create a resource by specifying the name. The table name will be guessed automatically.
+
+```bash
+# Table name is guessed based on the resource name (e.g., 'users' for UserResource).
 php artisan make:qresource UserResource 
 
-// Table name is given as the second argument.
-php artisan make:qresource UserResource users
+# Explicitly provide the table name.
+php artisan make:qresource UserResource --table=users
+
+# Resolve table name from a model.
+php artisan make:qresource UserResource --model=User
 ```
 
-### Config
+### Advanced Filtering
 
-```php 
-// The keys defined in this config will always be excluded from resources - if they exist as a key in the table.
-'exclude' => [
-    // 'id',
-],
+Filter which columns should be included in the generated resource.
+
+```bash
+# Only include specific columns.
+php artisan make:qresource UserResource --only=id,name,email
+
+# Exclude specific columns.
+php artisan make:qresource UserResource --except=deleted_at,internal_notes
 ```
 
-### Changelog
+Note: Common sensitive fields like `password`, `token`, `secret`, and `remember_token` are automatically excluded.
 
-Please see [CHANGELOG](CHANGELOG.md) for more information what has changed recently.
+### Bulk Generation
 
-## Credits
+Generate resources for your entire database at once.
 
-- [Quinten Justus](https://github.com/protoqol)
-- [All Contributors](../../contributors)
+```bash
+# Generate resources for all tables.
+php artisan make:qresource --all
 
-## License
+# Generate resources AND collections for all tables.
+php artisan make:qresource --all --collection
+```
 
-The GNU GPL (GPL). Please see [License File](LICENSE.md) for more information.
+### Resource Collections
+
+Generate a Laravel Resource Collection.
+
+```bash
+php artisan make:qresource UserCollection --collection
+```
+
+> Note: The generated resource will contain all columns from the table. You can then simply remove the ones you don't
+> need!
+
+---
+
+## Feedback, suggestions or issues?
+
+Please open an issue on this repository. We're happy to hear back from you!
+
+---
+
+Developed by [Protoqol](https://protoqol.nl/).
