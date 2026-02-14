@@ -1,8 +1,7 @@
 ![Quasi](https://cms.protoqol.nl/assets/1f26790d-79c2-4aeb-ab2e-4534820c3cb4)
 
-![Packagist](https://img.shields.io/github/actions/workflow/status/Protoqol/quasi/testing)
+![Packagist](https://img.shields.io/github/actions/workflow/status/protoqol/quasi/testing.yml)
 ![Packagist](https://img.shields.io/packagist/v/protoqol/quasi.svg)
-![PHP Version](https://img.shields.io/packagist/php-v/protoqol/quasi.svg)
 
 ## Features
 
