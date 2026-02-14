@@ -95,7 +95,7 @@ class CreateQuasiResourceCommand extends GeneratorCommand
         $tables = Schema::getTableListing();
 
         foreach ($tables as $table) {
-            if ($table === 'migrations') {
+            if (in_array($table, ['migrations', 'sqlite_sequence', 'failed_jobs', 'jobs', 'job_batches', 'cache', 'cache_locks', 'password_reset_tokens', 'sessions'])) {
                 continue;
             }
 

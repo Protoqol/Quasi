@@ -12,8 +12,7 @@
 - **Advanced Filtering**: Use `--only` or `--except` to filter columns on the fly.
 - **Relationship Discovery**: Automatically detects `_id` columns and adds commented-out `whenLoaded` placeholders.
 - **Bulk Generation**: Generate resources for all tables in your database with a single command.
-- **Resource Collections**: Generate a `ResourceCollection` alongside or instead of a standard resource.
-- **Customizable Stubs**: Publish and customize the resource stubs to match your project's style.
+- **Customisable Stubs**: Publish and customise the resource stubs to match your project's style.
 - **Fine-grained Control**: Exclude specific fields globally via the configuration file or rely on automatic sensitive
   data hiding.
 
@@ -81,17 +80,6 @@ php artisan make:qresource --all
 # Generate resources AND collections for all tables.
 php artisan make:qresource --all --collection
 ```
-
-### Resource Collections
-
-Generate a Laravel Resource Collection.
-
-```bash
-php artisan make:qresource UserCollection --collection
-```
-
-> Note: The generated resource will contain all columns from the table. You can then simply remove the ones you don't
-> need!
 
 ---
 
